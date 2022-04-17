@@ -1,24 +1,59 @@
-import logo from './logo.svg';
+import './reset.css'
 import './App.css';
+import useLanguages from './hooks/useLanguage'
+import useThemes from './hooks/useThemes';
+import useScrollEffect from './hooks/useScrollEffect';
+import CubeButton from './components/cubeButton';
 
 function App() {
+  const [texts, setLanguage] = useLanguages();
+  const [ThemeProvider, setTheme, THEME] = useThemes();
+  useScrollEffect('scroll-effect', 'scrolling');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <section className='fixed' id='section-header'>
+        <div className='section-content'>
+          <div className='scroll-effect' style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+            {/* <CubeButton
+              width={400}
+              height={250}
+              shadowSize={50}
+              animationTime={200}
+            /> */}
+          </div>
+        </div>
+      </section>
+      <section className='header'>
+        <div className='section-content'>
+
+        </div>
+      </section>
+      <section>
+        <div className='section-content'>
+
+        </div>
+      </section>
+      <section>
+        <div className='section-content'>
+
+        </div>
+      </section>
+      <section>
+        <div className='section-content'>
+
+        </div>
+      </section>
+      <section><div className='section-content'>
+
+      </div>
+      </section>
+      <section>
+        <div className='section-content'>
+
+        </div>
+      </section>
+    </ThemeProvider>
   );
 }
 
